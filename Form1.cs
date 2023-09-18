@@ -153,24 +153,38 @@ namespace 虚拟桌宠模拟器_超模计算器
         /// <returns>是否超模</returns>
         public bool IsOverLoad_W()
         {//判断这个工作是否超模
+            if (FinishBonus_W < 0)
+            {
+                return true;
+            }
             var spend = ((StrengthFood_W >= 0 ? 1 : -1) * Math.Pow(StrengthFood_W * 2 + 1, 2) / 6 +
                 (StrengthDrink_W >= 0 ? 1 : -1) * Math.Pow(StrengthDrink_W * 2 + 1, 2) / 9 +
                (Feeling_W >= 0 ? 1 : -1) * Math.Pow((workType == WorkType.Play ? -1 : 1) * Feeling_W * 2 + 1, 2) / 12) *
                 (Math.Pow(LevelLimit_W / 2 + 1, 0.5) / 4 + 1) - 0.5;
-            textBox1.Text = spend.ToString();
-            if (spend <= 0)
-                return true;
+            //textBox1.Text = spend.ToString();
+            //if (spend <= 0)
+            //    return true;
             var get = (MoneyBase_W + MoneyLevel_W * 10) * (MoneyLevel_W + 1) * (1 + FinishBonus_W / 2);
             if (workType != WorkType.Work)
             {
                 get /= 12;//经验值换算
             }
+            textBox1.Text = get.ToString();
             var rel = get / spend;
             textBox2.Text = rel.ToString();
+            if (rel < 0)
+            {
+                return true;
+            }
+            if (Math.Abs(get) > (LevelLimit_W + 4) * 6)
+            {
+                return true;
+            }
             return rel > 2;
             // 推荐rel为1.0-1.4之间 超过2.0就是超模
         }
 
+        // 判断食物是否超模
         public bool IsOverLoad_F()
         {
             double ReasonablePrice = ((Exp_F / 3 + Strength_F / 5 + StrengthDrink_F / 3 + StrengthFood_F / 2 + Feeling_F / 5) / 3 + Health_F + Likability_F * 10);

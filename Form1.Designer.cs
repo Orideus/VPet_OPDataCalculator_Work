@@ -178,16 +178,16 @@ namespace 虚拟桌宠模拟器_超模计算器
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(241, 111);
+            this.label10.Location = new System.Drawing.Point(241, 87);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(149, 24);
+            this.label10.Size = new System.Drawing.Size(137, 48);
             this.label10.TabIndex = 43;
-            this.label10.Text = "超模判定/OP standard：\r\n(spend<=0) 或/or (rel>2)\r\n";
+            this.label10.Text = "超模判定/OP standard：\r\nFinishBonus<0 或\r\n|get|>(LevelLimit+4)*6\r\n或 rel<0 或 rel>2\r\n";
             // 
             // checkBoxOP_W
             // 
             this.checkBoxOP_W.AutoSize = true;
-            this.checkBoxOP_W.Location = new System.Drawing.Point(324, 83);
+            this.checkBoxOP_W.Location = new System.Drawing.Point(324, 173);
             this.checkBoxOP_W.Name = "checkBoxOP_W";
             this.checkBoxOP_W.Size = new System.Drawing.Size(66, 16);
             this.checkBoxOP_W.TabIndex = 42;
@@ -209,9 +209,9 @@ namespace 虚拟桌宠模拟器_超模计算器
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(241, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 12);
+            this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 40;
-            this.label8.Text = "spend";
+            this.label8.Text = "get";
             // 
             // label7
             // 
